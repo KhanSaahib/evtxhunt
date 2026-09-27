@@ -1,0 +1,16 @@
+{
+  "id": "win-firewall-disabled-via-netsh",
+  "title": "Windows Firewall disabled via netsh",
+  "description": "netsh advfirewall commands that turn off all profiles are a common pre-lateral-movement or pre-exfiltration step to remove local network controls.",
+  "level": "high",
+  "tags": ["attack.defense-evasion", "attack.t1562.004"],
+  "logsource": {"channel": "Security"},
+  "detection": {
+    "selection": {
+      "EventID": 4688,
+      "EventData.NewProcessName|contains": "netsh.exe",
+      "EventData.CommandLine|contains": ["advfirewall set allprofiles state off", "firewall set opmode disable"]
+    },
+    "condition": "selection"
+  }
+}

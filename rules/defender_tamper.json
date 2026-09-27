@@ -1,0 +1,14 @@
+{
+  "id": "win-defender-realtime-protection-disabled",
+  "title": "Windows Defender real-time protection disabled",
+  "description": "Real-time protection being turned off shortly before other suspicious activity is a strong defense-evasion signal worth correlating against.",
+  "level": "high",
+  "tags": ["attack.defense-evasion", "attack.t1562.001"],
+  "logsource": {"channel": "Microsoft-Windows-Windows Defender/Operational"},
+  "detection": {
+    "selection": {
+      "EventID": [5001, 5010, 5012]
+    },
+    "condition": "selection"
+  }
+}

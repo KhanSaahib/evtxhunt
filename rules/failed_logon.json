@@ -1,0 +1,14 @@
+{
+  "id": "win-failed-logon",
+  "title": "Failed logon attempt",
+  "description": "A single failed logon is low signal on its own, but evtxhunt's host correlation window turns a burst of these on one host into a high-scoring brute-force/spray incident automatically.",
+  "level": "low",
+  "tags": ["attack.credential-access", "attack.t1110"],
+  "logsource": {"channel": "Security"},
+  "detection": {
+    "selection": {
+      "EventID": 4625
+    },
+    "condition": "selection"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "win-suspicious-scheduled-task",
+  "title": "Scheduled task created running a script interpreter or from a temp path",
+  "description": "Attackers commonly use scheduled tasks for persistence. A task whose command references PowerShell/wscript/mshta or a temp/public directory is worth a closer look.",
+  "level": "medium",
+  "tags": ["attack.persistence", "attack.t1053.005"],
+  "logsource": {"channel": "Security"},
+  "detection": {
+    "selection": {
+      "EventID": 4698,
+      "EventData.TaskContent|contains": ["powershell", "wscript", "mshta", "\\Temp\\", "\\Users\\Public\\"]
+    },
+    "condition": "selection"
+  }
+}

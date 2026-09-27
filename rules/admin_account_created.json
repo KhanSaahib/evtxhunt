@@ -1,0 +1,14 @@
+{
+  "id": "win-admin-group-membership-change",
+  "title": "Account added to a privileged local group",
+  "description": "A new member added to Administrators (or another privileged group) shortly after account creation is a common escalation pattern for both insiders and post-exploitation persistence.",
+  "level": "medium",
+  "tags": ["attack.persistence", "attack.privilege-escalation", "attack.t1098"],
+  "logsource": {"channel": "Security"},
+  "detection": {
+    "selection": {
+      "EventID": [4720, 4732, 4728]
+    },
+    "condition": "selection"
+  }
+}

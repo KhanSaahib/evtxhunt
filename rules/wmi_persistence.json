@@ -1,0 +1,15 @@
+{
+  "id": "win-process-spawned-by-wmi",
+  "title": "Process spawned by the WMI provider host",
+  "description": "WmiPrvSE.exe spawning a shell or script interpreter is a well-known WMI event subscription persistence and lateral-execution pattern (e.g. Impacket wmiexec).",
+  "level": "medium",
+  "tags": ["attack.execution", "attack.persistence", "attack.t1047", "attack.t1546.003"],
+  "logsource": {"channel": "Security"},
+  "detection": {
+    "selection": {
+      "EventData.ParentProcessName|contains": "WmiPrvSE.exe",
+      "EventData.NewProcessName|contains": ["cmd.exe", "powershell.exe", "wscript.exe", "cscript.exe"]
+    },
+    "condition": "selection"
+  }
+}

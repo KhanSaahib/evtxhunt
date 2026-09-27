@@ -1,0 +1,15 @@
+{
+  "id": "win-powershell-encoded-command",
+  "title": "PowerShell execution with an encoded or hidden command",
+  "description": "Flags PowerShell script blocks that use -EncodedCommand/-enc or -WindowStyle Hidden, a common way to smuggle obfuscated payloads past casual log review.",
+  "level": "high",
+  "tags": ["attack.execution", "attack.t1059.001", "attack.defense-evasion", "attack.t1027"],
+  "logsource": {"channel": "Microsoft-Windows-PowerShell/Operational"},
+  "detection": {
+    "selection": {
+      "EventID": 4104,
+      "EventData.ScriptBlockText|contains": ["-EncodedCommand", "-enc ", "-e JAB", "-WindowStyle Hidden", "-w hidden"]
+    },
+    "condition": "selection"
+  }
+}

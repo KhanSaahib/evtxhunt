@@ -1,0 +1,15 @@
+{
+  "id": "win-kerberoasting-rc4-ticket",
+  "title": "Kerberos service ticket requested with weak RC4 encryption",
+  "description": "A TGS request (4769) using RC4 (etype 0x17) instead of AES for a service account is the textbook Kerberoasting fingerprint - modern clients default to AES unless something is deliberately downgrading it.",
+  "level": "high",
+  "tags": ["attack.credential-access", "attack.t1558.003"],
+  "logsource": {"channel": "Security"},
+  "detection": {
+    "selection": {
+      "EventID": 4769,
+      "EventData.TicketEncryptionType": ["0x17", "0x17000000"]
+    },
+    "condition": "selection"
+  }
+}

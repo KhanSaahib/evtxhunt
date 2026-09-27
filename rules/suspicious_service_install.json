@@ -1,0 +1,15 @@
+{
+  "id": "win-suspicious-service-binary",
+  "title": "Service installed with a shell/interpreter binary path",
+  "description": "A new service whose ImagePath is cmd, powershell, or another interpreter rather than a real executable is a classic persistence or PsExec-style lateral movement indicator.",
+  "level": "high",
+  "tags": ["attack.persistence", "attack.t1543.003", "attack.lateral-movement"],
+  "logsource": {"channel": "System"},
+  "detection": {
+    "selection": {
+      "EventID": 7045,
+      "EventData.ImagePath|contains": ["cmd.exe /c", "powershell", "rundll32", "PSEXESVC", "\\\\Temp\\\\", "\\\\Users\\\\Public\\\\"]
+    },
+    "condition": "selection"
+  }
+}

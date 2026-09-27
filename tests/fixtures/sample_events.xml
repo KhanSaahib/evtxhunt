@@ -1,0 +1,55 @@
+<Events>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Microsoft-Windows-Security-Auditing"/>
+    <EventID>4688</EventID>
+    <TimeCreated SystemTime="2026-01-01T10:00:00.000000Z"/>
+    <EventRecordID>1001</EventRecordID>
+    <Channel>Security</Channel>
+    <Computer>WORKSTATION01.corp.local</Computer>
+  </System>
+  <EventData>
+    <Data Name="NewProcessName">C:\Windows\System32\rundll32.exe</Data>
+    <Data Name="CommandLine">rundll32.exe javascript:eval("payload")</Data>
+    <Data Name="ParentProcessName">C:\Windows\explorer.exe</Data>
+  </EventData>
+</Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Microsoft-Windows-Security-Auditing"/>
+    <EventID>4625</EventID>
+    <TimeCreated SystemTime="2026-01-01T10:02:00.000000Z"/>
+    <EventRecordID>1002</EventRecordID>
+    <Channel>Security</Channel>
+    <Computer>WORKSTATION01.corp.local</Computer>
+  </System>
+  <EventData>
+    <Data Name="TargetUserName">administrator</Data>
+  </EventData>
+</Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Microsoft-Windows-Security-Auditing"/>
+    <EventID>1102</EventID>
+    <TimeCreated SystemTime="2026-01-01T10:05:00.000000Z"/>
+    <EventRecordID>1003</EventRecordID>
+    <Channel>Security</Channel>
+    <Computer>WORKSTATION01.corp.local</Computer>
+  </System>
+  <EventData/>
+</Event>
+<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+  <System>
+    <Provider Name="Microsoft-Windows-Security-Auditing"/>
+    <EventID>4688</EventID>
+    <TimeCreated SystemTime="2026-01-01T14:00:00.000000Z"/>
+    <EventRecordID>1004</EventRecordID>
+    <Channel>Security</Channel>
+    <Computer>OTHERHOST.corp.local</Computer>
+  </System>
+  <EventData>
+    <Data Name="NewProcessName">C:\Windows\System32\notepad.exe</Data>
+    <Data Name="CommandLine">notepad.exe report.txt</Data>
+  </EventData>
+</Event>
+</Events>

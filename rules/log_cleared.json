@@ -1,0 +1,19 @@
+{
+  "id": "win-security-log-cleared",
+  "title": "Windows Security or System event log was cleared",
+  "description": "Clearing the audit log (Security 1102 or System 104) is a classic anti-forensics move, almost always worth immediate escalation regardless of what else fired nearby.",
+  "level": "critical",
+  "tags": ["attack.defense-evasion", "attack.t1070.001"],
+  "logsource": {},
+  "detection": {
+    "security_cleared": {
+      "EventID": 1102,
+      "Channel": "Security"
+    },
+    "system_cleared": {
+      "EventID": 104,
+      "Channel": "System"
+    },
+    "condition": "security_cleared or system_cleared"
+  }
+}

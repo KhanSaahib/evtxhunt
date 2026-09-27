@@ -1,0 +1,18 @@
+{
+  "id": "win-lolbin-download-execute",
+  "title": "Living-off-the-land binary used for download/execute or encoded payloads",
+  "description": "rundll32, mshta, certutil and regsvr32 are legitimate Windows binaries frequently abused to fetch or run payloads while evading naive process-name allowlists.",
+  "level": "high",
+  "tags": ["attack.defense-evasion", "attack.t1218"],
+  "logsource": {"channel": "Security"},
+  "detection": {
+    "selection": {
+      "EventID": 4688,
+      "EventData.NewProcessName|contains": ["rundll32.exe", "mshta.exe", "certutil.exe", "regsvr32.exe"]
+    },
+    "suspicious_args": {
+      "EventData.CommandLine|contains": ["javascript:", "-urlcache", "-decode", "http://", "https://", "/i:http"]
+    },
+    "condition": "selection and suspicious_args"
+  }
+}
